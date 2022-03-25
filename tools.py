@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import pdb
 
 def test_consistency_of_annotation_table(t):
     """A collection of tests to make sure that the annotation
@@ -42,7 +43,7 @@ def actions_to_dataframe(actions):
         
         if 'data' in attr.keys():
             for key, val in attr['data'].items():
-                dct['data_path_' + key] = val
+                dct['data_path_' + key] = action.data_path(key)
         if 'info' in action.modules.keys():     
             dct = {**dct, **dict(action.modules['info'])}
         ls_actions.append(dct)
