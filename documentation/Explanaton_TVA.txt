@@ -1,0 +1,30 @@
+Relevanter Teil des TVAs und Ergaenzungen:
+24 h nach der Tractus-perforans-Stimulation wird eine Langzeitstimulation (Dauer 1 Woche) verschiedener Hirnbereich vorgenommen, um ein Stimulationsparadigma zu etablieren, das die Epileptogenese verhindert. Die Lokalisation der zu stimulierenden Areale ergibt sich dabei aus pathophysiologischen Überlegungen: Da Anfälle in der Regel im Hippokampus entstehen, werden dessen Eingangsbahn (Tractus perforans), eine seiner elektrophysiologisch identifizierbaren Substrukturen (Gyrus dentatus) und dessen Ausgangsbahn (Fimbria) stimuliert. Die verwendeten Stimulationsfrequenzen sind experimentell etabliert als Niedrig- und Hochfrequenzstimulationen [Wyckhuys et al., 2010]. Hierzu werden zunächst 7 Gruppen gebildet (Task 3.2-1, Gruppengröße n=6):
+• Gruppe 1: Stimulation Fimbria, 5 Hz
+• Gruppe 2: Stimulation Fimbria, 130 Hz
+• Gruppe 3: Stimulation Tractus perforans, 5 Hz
+• Gruppe 4: Stimulation Tractus perforans, 130 Hz
+• Gruppe 5: Stimulation Gyrus dentatus, 5 Hz
+• Gruppe 6: Stimulation Gyrus dentatus, 130 Hz
+• Gruppe 7: Kontrollen (unstimuliert)
+Bei weiteren 7 Gruppen (Task 3.2-2, Gruppengröße n=5) erfolgt die Langzeitstimulation mit denselben Paradigmen, allerdings erst nach Abschluss der Epileptogenese (also nach Auftreten des 1. Anfalls). Zielparameter ist die Anfallsfrequenz (gemessen über 3 Monate nach dem 1. Anfall mittels Video-EEG-Monitorings), um die antikonvulsive Wirkung der Hirnstimulationsparadigmen zu ermitteln:
+
+• Gruppe 8: Stimulation Fimbria, 5 Hz
+• Gruppe 9: Stimulation Fimbria, 130 Hz
+• Gruppe 10: Stimulation Tractus perforans, 5 Hz
+• Gruppe 11: Stimulation Tractus perforans, 130 Hz
+• Gruppe 12: Stimulation Gyrus dentatus, 5 Hz
+• Gruppe 13: Stimulation Gyrus dentatus, 130 Hz
+• Gruppe 14 und 15: Kontrollen (unstimuliert)
+• Gruppe 16: (Kontrollgruppe, behandelt wie Gruppe 7, da Gruppe 7 nicht abgeleitet wurde)
+
+Zusaetzliche Gruppen (mE: stimulation nach erstem Anfall, epilep: stimulation direkt nach PPS
+Vhc_mE_Kontrolle
+Vhc_mE_LF (5 hz)
+vhc_epileptog_LF
+vhc_mE_LF (1Hz)
+vhc_epilep_HF
+vhc_epilep_1 Hz
+vhc_epilep_1 Hz
+vhc_mE_1Hz (2 weeks)
+vhc_epilep_HF (2 weeks)
