@@ -15,7 +15,7 @@ Bei weiteren 7 Gruppen (Task 3.2-2, Gruppengröße n=5) erfolgt die Langzeitstim
 • Gruppe 11: Stimulation Tractus perforans, 130 Hz
 • Gruppe 12: Stimulation Gyrus dentatus, 5 Hz
 • Gruppe 13: Stimulation Gyrus dentatus, 130 Hz
-• Gruppe 14 und 15: Kontrollen (unstimuliert)
+• Gruppe 14 (FF) und 15 (vhc): Kontrollen (unstimuliert)
 • Gruppe 16: (Kontrollgruppe, behandelt wie Gruppe 7, da Gruppe 7 nicht abgeleitet wurde)
 
 Zusaetzliche Gruppen (mE: stimulation nach erstem Anfall, epilep: stimulation direkt nach PPS
