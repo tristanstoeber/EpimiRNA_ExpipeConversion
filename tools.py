@@ -71,6 +71,9 @@ def load_dict(filename_):
         ret_di = pickle.load(f)
     return ret_di
 
+def save_dict(di_, filename_):
+    with open(filename_, 'wb') as f:
+        pickle.dump(di_, f)
 
 def define_epg_phases(df, p_phase, p_columnnames):
     
@@ -145,16 +148,14 @@ def define_epg_phases(df, p_phase, p_columnnames):
         # determine seizure free rows after stimulation
         df_afterstim = df.loc[row_ids_afterstim]
 
-        # Seizure free are considered all recordings with either no entry
-        bool_isnull = df_afterstim['Seizure'].isnull()
-        # or if they are marked with a single questionmark
-        bool_qm = entries_with_single_character(
-            '\?', df_afterstim['Seizure'].astype(str))
+        # get seizure free entries
+        bool_noseizure = df_afterstim['Seizure'].isnull()
 
-        bool_noseizure = (bool_isnull) | (bool_qm)
-
+        min_len = p_phase['Criteria_LatentPhase']['min_len']
+        if isinstance(min_len, dt.timedelta):
+            min_len = min_len.days
         ls_size_noseizure = determine_start_end_of_blobs(
-            bool_noseizure, min_len=p_phase['Criteria_LatentPhase']['min_len'])
+            bool_noseizure, min_len=min_len)
 
         if len(ls_size_noseizure.shape) >= 2:
             # get start of latent period
@@ -244,3 +245,56 @@ def define_epg_phases(df, p_phase, p_columnnames):
                             p_phase['Chronic_2']['len'] -
                             dt.timedelta(seconds=1))
         return res
+
+
+def match_condition_on_row(df, p):
+    """
+    Determine rows that match conditions p
+    
+    Usage:
+    Extract a certain subset of rows. For example,
+    those corresponding to three days after a surgery.
+    
+    Example for p:
+    p = {        
+        'col':'Surgery',   # column to look at
+        'ref':'x',         # reference value
+        'ord': argmax,     # which numpy function to decide
+                           # between multiple values matching ref
+        'ord_col':'datetime',  # values in this column
+        'wndw':[24, 96],   # window, here hours
+        'wndw_col': 'hours_since_start', # column to evaluate window on
+    }
+
+    """
+    df_ref = df[df[p['col']] == p['ref']]
+    assert hasattr(np, p['ord'])
+    if len(df_ref)>0:
+        pos = getattr(np, p['ord'])(df_ref[p['ord_col']])
+    else:
+        return np.zeros(len(df), dtype=bool)
+    
+    # get reference row
+    row_ref = df_ref.iloc[pos]
+    # get reference time
+    assert 'hours_since_start' in df.keys()
+    hours_ref = row_ref['hours_since_start']
+    
+    # get time difference to all rows
+    hours_delta = df[p['wndw_col']]-hours_ref
+    
+    # retrieve bool whithin time window.
+    bool_delta = (hours_delta>=p['wndw'][0]) & (hours_delta<p['wndw'][1])
+    return bool_delta
+
+
+def determine_start_end_of_blobs(a, min_len=None):
+    m = np.concatenate(( [True], ~a, [True] ))  # Mask
+    ss = np.flatnonzero(m[1:] != m[:-1]).reshape(-1,2)   # Start-stop limits
+    if min_len:
+        ss_bool = (ss[:,1] - ss[:,0]) >= min_len
+        ss = ss[ss_bool]
+        # if no value is present modify output
+        if ~np.any(ss_bool):
+            ss = ss.flatten()
+    return ss
