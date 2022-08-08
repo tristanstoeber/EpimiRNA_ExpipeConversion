@@ -1,0 +1,31 @@
+annotation = {
+    '1': 'FF_EPG_5Hz',
+    '1_noPPS': 'FF_EPG_5Hz_noPPS',
+    '2': 'FF_EPG_130Hz',
+    '3': 'PP_EPG_5Hz',
+    '4': 'PP_EPG_130Hz',
+    '5': 'DG_EPG_5Hz',
+    '6': 'DG_EPG_130Hz',
+    '8': 'FF_ME_5Hz',
+    '9': 'FF_ME_130Hz',
+    '10': 'PP_EPG_5Hz',
+    '11': 'PP_EPG_130Hz',
+    '12': 'DG_EPG_5Hz',
+    '13': 'DG_EPG_130Hz',
+    '14': 'FF_noDBS',
+    '14_noPPS': 'FF_noDBS_noPPS',
+    '15': 'VHC_noDBS',
+    '16': 'noDBS'
+    'pps_only': 'noDBS'
+    'vhc_epilep_1 Hz': 'VHC_EPG_1Hz',
+    'vhc_epilep_HF': 'VHC_EPG_130Hz',
+    'vhc_epilep_LF (5 Hz)': 'VHC_EPG_5Hz',
+    'vhc_epileptog_LF': 'VHC_EPG_?Hz',
+    'vhc_mE_Kontrolle': 'VHC_noDBS',
+    'vhc_mE_LF (1 Hz)': 'VHC_ME_1Hz',
+    'vhc_mE_LF (1Hz)': 'VHC_ME_1Hz',
+    'vhc_mE_LF (5 Hz)': 'VHC_ME_5Hz',
+    'vhc_mE_LF (5Hz)': 'VHC_ME_5Hz',
+}
+    
+
