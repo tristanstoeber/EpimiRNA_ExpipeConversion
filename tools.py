@@ -57,8 +57,9 @@ def actions_to_dataframe(actions):
         dct['type'] = attr['type']
         
         if 'data' in attr.keys():
+            dct['data_path'] = {}
             for key, val in attr['data'].items():
-                dct['data_path_' + key] = action.data_path(key)
+                dct['data_path'][key] = action.data_path(key)
         if 'info' in action.modules.keys():     
             dct = {**dct, **dict(action.modules['info'])}
         ls_actions.append(dct)
