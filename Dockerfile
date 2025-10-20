@@ -5,9 +5,10 @@ USER root
 RUN apt-get update
 
 USER jovyan
-RUN pip install odfpy
-RUN pip install exdir
-RUN pip install expipe
-RUN pip install pyedflib
-RUN pip install mat73
+
+# Downgrade numpy to a version compatible with the other packages
+RUN pip install "numpy<2"
+
+# Install the other packages
+RUN pip install odfpy exdir expipe pyedflib mat73
 
